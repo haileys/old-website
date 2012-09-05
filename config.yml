@@ -1,0 +1,6 @@
+development:
+  db:
+    adapter: mysql2
+    host: localhost
+    username: root
+    database: charlie-bz

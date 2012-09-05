@@ -1,0 +1,7 @@
+<%== erb :_post, locals: { post: @posts.first } %>
+
+<ul class="previous-posts">
+    <% @posts.drop(1).each do |post| %>
+        <li><a href="<%= post_path post %>"><%= post.title %></a></li>
+    <% end %>
+</ul>

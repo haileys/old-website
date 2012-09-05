@@ -1,0 +1,137 @@
+* {
+    margin:0px;
+    padding:0px;
+}
+
+body {
+    font-family:"Open Sans";
+    font-size:14px;
+    color:#333333;
+}
+
+p {
+    margin-bottom:16px;
+}
+
+header, section {
+    display:block;
+    width:720px;
+    margin:0px auto;
+    margin-bottom:16px;
+}
+
+header {
+    background-color:#f9f9f9;
+    height:56px;
+    line-height:56px;
+    margin-top:32px;
+    vertical-align:middle;
+    padding-bottom:4px;
+    
+    h1 {
+        display:block;
+        float:left;
+        width:280px;
+        a {
+            font-weight:bold;
+            font-size:24px;
+            display:block;
+            width:328px;
+            float:left;
+            border-top:4px solid #efefef;
+            color:#565656;
+            text-decoration:none;
+            padding:0px 16px;
+        }
+    }
+    
+    nav {
+        float:right;
+        width:440px;
+        
+        a {
+            font-size:18px;
+            display:block;
+            float:left;
+            width:110px;
+            text-align:center;
+            color:#333344;
+            text-decoration:none;
+            border-top:4px solid;
+            
+            @mixin menu-item($theta) {
+                color:hsl($theta, 40%, 40%);
+                border-top:4px solid hsl($theta, 40%, 70%);
+                &:hover {
+                    color:hsl($theta, 100%, 100%);
+                    box-shadow:inset 0 56px hsl($theta, 40%, 70%);
+                    -webkit-transition: all 100ms ease-in-out;
+                    -moz-transition: all 100ms ease-in-out;
+                    -ms-transition: all 100ms ease-in-out;
+                    -o-transition: all 100ms ease-in-out;
+                    transition: all 100ms ease-in-out;
+                }
+            }
+            
+            &.blog    { @include menu-item(0); }
+            &.code    { @include menu-item(90); }
+            &.talks   { @include menu-item(180); }
+            &.contact { @include menu-item(270); }
+        }
+    }
+}
+
+section {
+    a {
+        color:#5368f7;
+        text-decoration:none;
+        border-bottom:1px dotted;
+        &:hover {
+            color:#334cf5;
+        }
+    }
+    
+    .ego-vanity-hour {
+        font-size:16px;
+        line-height:28px;
+        text-align:justify;
+        
+        /*
+        .charlie    { font-weight:bold; }
+        .ruby       { background-color:#ffece7; padding:4px 6px; }
+        .melbourne  { background-color:#e1fbf6; padding:4px 6px; }
+        .c          { background-color:#e2effb; padding:4px 6px; }
+        .javascript { background-color:#fcf3dc; padding:4px 6px; }
+        */
+    }
+    
+    .post {
+        border-bottom:1px solid #efefef;
+        
+        .masthead {
+            display:block;
+            height:32px;
+            line-height:32px;
+            vertical-align:bottom;
+            border-bottom:1px solid #efefef;
+            margin-bottom:16px;
+            
+            h2 {
+                font-size:22px;
+                float:left;
+                a {
+                    color:inherit;
+                    border:none;
+                    &:hover {
+                        color:#666677;
+                    }
+                }
+            }
+            
+            span {
+                float:right;
+                font-size:14px;
+            }
+        }
+    }
+}

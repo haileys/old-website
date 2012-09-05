@@ -1,0 +1,9 @@
+<div class="post">
+    <div class="masthead">
+        <h2><a href="<%= post_path post %>"><%= post.title %></a></h2>
+        <span>posted <%= time_ago_in_words post.created_at %> ago</span>
+    </div>
+    <p>
+        <%== markdown post.content %>
+    </p>
+</div>

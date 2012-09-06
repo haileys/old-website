@@ -4,6 +4,7 @@
         <span>posted <%= time_ago_in_words post.created_at %> ago</span>
     </div>
     <p>
-        <%== markdown post.content %>
+        <%== format_post post.content %>
     </p>
 </div>
+<style><%= Pygments.css %></style>

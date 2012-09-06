@@ -219,4 +219,21 @@ section {
             padding-bottom:8px;
         }
     }
+    
+    .highlight {
+        padding:16px;
+        background-color:#f3f3f3;
+        border-top:4px solid #eaeaea;
+        line-height:12px;
+        margin-bottom:16px;
+    }
+    
+    code {
+        padding:4px;
+        background-color:#f3f3f3;
+    }
+    
+    pre, code {
+        font-family:Monaco, Consolas, "Courier New", monospace;
+    }
 }

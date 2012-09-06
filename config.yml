@@ -4,3 +4,9 @@ development:
     host: localhost
     username: root
     database: charlie-bz
+production:
+  db:
+    adapter: mysql2
+    host: localhost
+    username: root
+    database: charlie-bz

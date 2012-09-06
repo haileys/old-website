@@ -2,6 +2,9 @@
 
 <ul class="previous-posts">
     <% @posts.drop(1).each do |post| %>
-        <li><a href="<%= post_path post %>"><%= post.title %></a></li>
+        <li>
+            <h3><a href="<%= post_path post %>"><%= post.title %></a></h3>
+            <span>posted <%= time_ago_in_words post.created_at %> ago</span>
+        </li>
     <% end %>
 </ul>

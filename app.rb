@@ -55,6 +55,12 @@ get "/blog/new" do
   only_charlie!
 end
 
+get "/blog/:id.md" do
+  post = Post.find params[:id]
+  content_type "text/plain"
+  post.content
+end
+
 get "/blog/:id" do
   @post = Post.find params[:id]
   erb :blog_post

@@ -9,7 +9,7 @@ body {
     color:#333333;
 }
 
-p {
+h2, p {
     margin-bottom:16px;
 }
 
@@ -119,6 +119,7 @@ section {
             h2 {
                 font-size:22px;
                 float:left;
+                margin-bottom:0px;
                 a {
                     color:inherit;
                     border:none;

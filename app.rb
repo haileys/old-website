@@ -58,7 +58,7 @@ end
 get "/blog/:id.md" do
   post = Post.find params[:id]
   content_type "text/plain"
-  post.content
+  "# #{post.title}\n\n#{post.content}"
 end
 
 get "/blog/:id" do

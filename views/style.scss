@@ -185,5 +185,9 @@ section {
         p {
             clear:both;
         }
+        & > ul > li {
+            border-bottom:1px solid #efefef;
+            margin-bottom:16px;
+        }
     }
 }

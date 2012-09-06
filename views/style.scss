@@ -198,10 +198,10 @@ section {
                     padding:4px 8px;
                     color:#ffffff;
                     
-                    &.ruby         { background-color:#ee233f; }
-                    &.c            { background-color:#97c6f1; }
-                    &.javascript   { background-color:#ecd120; }
-                    &.coffeescript { background-color:#c48837; }
+                    &.ruby         { background-color:#FE6960; }
+                    &.c            { background-color:#CEE9EF; color:#333333; }
+                    &.javascript   { background-color:#F8F087; color:#333333; }
+                    &.coffeescript { background-color:#E1B866; }
                 }
             }
         }

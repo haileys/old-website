@@ -6,6 +6,7 @@ RubyPython.configure python_exe: "/usr/bin/python2.7" if production?
 Dir["./models/*.rb"].each &method(:require)
 
 CONFIG = YAML.load_file "config.yml"
+COMMIT_ID = File.read(".git/refs/heads/master").strip
 
 set :erb, escape_html: true
 

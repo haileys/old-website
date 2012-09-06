@@ -3,8 +3,8 @@ Bundler.require :default
 
 Dir["./models/*.rb"].each &method(:require)
 
-config = YAML.load_file("config.yml")[Sinatra::Application.environment.to_s]
-ActiveRecord::Base.establish_connection config["db"]
+CONFIG = YAML.load_file "config.yml"
+ActiveRecord::Base.establish_connection CONFIG["db"]
 
 set :erb, escape_html: true
 
@@ -13,6 +13,14 @@ helpers do
   
   def post_path(post)
     "/blog/#{post.id}"
+  end
+end
+
+before do
+  if Sinatra::Application.environment == :development
+    # reload config
+    Object.send :remove_const, :CONFIG
+    CONFIG = YAML.load_file "config.yml"
   end
 end
 
@@ -38,8 +46,8 @@ get "/talks" do
   erb :talks
 end
 
-get "/contact" do
-  erb :contact
+get "/resume" do
+  erb :resume
 end
 
 get "/style.css" do

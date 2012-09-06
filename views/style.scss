@@ -9,8 +9,16 @@ body {
     color:#333333;
 }
 
-h2, p {
+h2, h3, p {
     margin-bottom:16px;
+}
+
+p {
+    line-height:24px;
+}
+
+ul {
+    margin-left:24px;
 }
 
 header, section {
@@ -73,10 +81,10 @@ header {
                 }
             }
             
-            &.blog    { @include menu-item(0); }
-            &.code    { @include menu-item(90); }
-            &.talks   { @include menu-item(180); }
-            &.contact { @include menu-item(270); }
+            &.blog   { @include menu-item(0); }
+            &.code   { @include menu-item(90); }
+            &.talks  { @include menu-item(180); }
+            &.resume { @include menu-item(270); }
         }
     }
 }
@@ -95,16 +103,7 @@ section {
     }
     
     .ego-vanity-hour {
-        line-height:28px;
         text-align:justify;
-        
-        /*
-        .charlie    { font-weight:bold; }
-        .ruby       { background-color:#ffece7; padding:4px 6px; }
-        .melbourne  { background-color:#e1fbf6; padding:4px 6px; }
-        .c          { background-color:#e2effb; padding:4px 6px; }
-        .javascript { background-color:#fcf3dc; padding:4px 6px; }
-        */
     }
     
     .post {
@@ -135,6 +134,56 @@ section {
                 float:right;
                 font-size:14px;
             }
+        }
+    }
+    
+    .resume, .talks, .code {
+        ul {
+            margin-left:0px;
+        }
+        li {
+            display:block;
+        }
+        .masthead {
+            display:block;
+            height:24px;
+            h4 {
+                display:block;
+                float:left;
+                span {
+                    color:#999999;
+                    font-weight:normal;
+                    &:before {
+                        content:"\2014\0020";
+                    }
+                }
+            }
+            .tenure, .date {
+                display:block;
+                float:right;
+            }
+            ul.tags {
+                display:block;
+                float:right;
+                margin-bottom:8px;
+                li {
+                    float:left;
+                    display:inline;
+                    list-style:none;
+                    margin-left:8px;
+                    margin-top:-6px;
+                    padding:4px 8px;
+                    color:#ffffff;
+                    
+                    &.ruby         { background-color:#ee233f; }
+                    &.c            { background-color:#97c6f1; }
+                    &.javascript   { background-color:#ecd120; }
+                    &.coffeescript { background-color:#c48837; }
+                }
+            }
+        }
+        p {
+            clear:both;
         }
     }
 }

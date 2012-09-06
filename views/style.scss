@@ -82,6 +82,9 @@ header {
 }
 
 section {
+    padding:0px 16px;
+    width:688px;
+    
     a {
         color:#5368f7;
         text-decoration:none;
@@ -92,7 +95,6 @@ section {
     }
     
     .ego-vanity-hour {
-        font-size:16px;
         line-height:28px;
         text-align:justify;
         

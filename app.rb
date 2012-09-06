@@ -14,13 +14,11 @@ helpers do
     "/blog/#{post.id}-#{post.title.parameterize}"
   end
   
-  def only_charlie!
-    auth = Rack::Auth::Basic::Request.new request.env
-    password = BCrypt::Password.new CONFIG["password"]
-    unless auth.provided? and auth.basic? and auth.credentials and auth.credentials.last == password
-      response["WWW-Authenticate"] = "Basic realm=\"only charlie\""
-      halt 401, "Unauthorized"
-    end
+  def format_post(source)
+    markdown source.gsub(/^```[a-z]+\s*\n(.|\n)*?^```/) { |snippet|
+      lang, *source, _ = snippet.lines.to_a
+      Pygments.highlight source.join("\n"), lexer: lang[3..-1].strip, options: { encoding: "utf-8" }
+    }
   end
 end
 

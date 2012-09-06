@@ -1,0 +1,35 @@
+<h2>Résumé</h2>
+
+<div class="resume">
+    <h3>Work</h3>
+    
+    <ul>
+        <% CONFIG["resume"]["work"].each do |item| %>
+            <li>
+                <div class="masthead">
+                    <h4><%= item["company"] %></h4>
+                    <span class="tenure"><%= item["tenure"].gsub "-", "—" %></span>
+                </div>
+                <p>
+                    <%= item["description"] %>
+                </p>
+            </li>
+        <% end %>  
+    </ul>
+    
+    <h3>Other</h3>
+    
+    <ul>
+        <% CONFIG["resume"]["other"].each do |item| %>
+            <li>
+                <div class="masthead">
+                    <h4><%= item["title"] %> <span><%= item["subtitle"] %></span></h4>
+                    <span class="date"><%= item["date"] %></span>
+                </div>
+                <p>
+                    <%= item["description"] %>
+                </p>
+            </li>
+        <% end %>
+    </ul>
+</div>

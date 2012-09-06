@@ -1,0 +1,25 @@
+<div class="talks">
+    <h3>Talks</h3>
+    
+    <ul>
+        <% CONFIG["talks"].each do |talk| %>
+            <li>
+                <div class="masthead">
+                    <h4>
+                        <% if talk["link"] %>
+                            <a href="<%= talk["link"] %>">
+                        <% end %>
+                            <%= talk["title"] %>
+                        <% if talk["link"] %>
+                            </a>
+                        <% end %>
+                    </h4>
+                    <span class="date"><%= talk["date"] %></span>
+                </div>
+                <p>
+                    <%= talk["description"] %>
+                </p>
+            </li>
+        <% end %>  
+    </ul>
+</div>

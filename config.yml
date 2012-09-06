@@ -1,12 +1,75 @@
-development:
-  db:
-    adapter: mysql2
-    host: localhost
-    username: root
-    database: charlie-bz
-production:
-  db:
-    adapter: mysql2
-    host: localhost
-    username: root
-    database: charlie-bz
+db:
+  adapter: mysql2
+  host: localhost
+  username: root
+  database: charlie-bz
+code:
+  -
+    title: execpad
+    link: http://exec.charlie.bz/
+    tags:
+      - ruby
+      - c
+    description:
+      "An online code pastebin/evaluator that can execute code written Ruby, PHP, Python, Lua, IO, Perl and JavaScript."
+  -
+    title: Slash
+    link: https://github.com/slash-lang/slash
+    tags:
+      - c
+    description:
+      "A language designed with the goal of being a sane PHP replacement. Inspired by Ruby, Perl and PHP."
+  -
+    title: Racer
+    link: https://github.com/charliesome/racer
+    tags:
+      - c
+    description:
+      "A high performance Ruby web server using libuv and node.js's HTTP parser"
+  - title: JSOS
+    link: https://github.com/charliesome/jsos
+    tags:
+      - c
+      - javascript
+      - coffeescript
+    description:
+      "A JavaScript operating system that uses a simple JavaScript VM I wrote. All drivers and most kernel code is written in JavaScript. The userland is entirely JavaScript and CoffeeScript."
+  - title: Twostroke
+    link: https://github.com/charliesome/twostroke
+    tags:
+      - ruby
+      - javascript
+    description:
+      "A JavaScript implementation written in Ruby. Complete enough to run the CoffeeScript compiler and pass all underscore.js tests."
+  - title: diffcalc
+    link: http://charliesome.github.com/diffcalc
+    tags:
+      - javascript
+    description:
+      "A differential calculator written in JavaScript."
+talks:
+  -
+    title: 50 Useful Resources You've Never Heard Of
+    link: http://charlie.bz/presos/50resources
+    date: 2012
+    description:
+      "A 5 minute lightning talk I did at the Web Directions \"What do you know?\" night in August."
+  - title: Twostroke
+    link: http://vimeo.com/36662041
+    date: 2012
+    description:
+      "A talk I gave at MelbJS about Twostroke, my JavaScript implementation in Ruby."
+resume:
+  work:
+    -
+      company: Envato
+      tenure: 2011 - present
+      description:
+        Working with Ruby and PHP on the Tuts+ Premium team.
+  other:
+    -
+      title: Ruby on Rails DoS Vulnerability
+      subtitle: CVE-2012-3424
+      date: 2012
+      description:
+        "A denial of service vulnerability in Rails' implementation of digest authentication I discovered and reported."

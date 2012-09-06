@@ -1,0 +1,23 @@
+<div class="code">
+    <h3>Code</h3>
+    
+    <ul>
+        <% CONFIG["code"].each do |project| %>
+            <li>
+                <div class="masthead">
+                    <h4>
+                        <a href="<%= project["link"] %>"><%= project["title"] %></a>
+                    </h4>
+                    <ul class="tags">
+                        <% project["tags"].each do |tag| %>
+                            <li class="<%= tag %>"><%= tag %></li>
+                        <% end %>
+                    </ul>
+                </div>
+                <p>
+                    <%= project["description"] %>
+                </p>
+            </li>
+        <% end %>  
+    </ul>
+</div>

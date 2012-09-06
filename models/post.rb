@@ -11,7 +11,8 @@ class Post
   
   def self.find_all_posts
     Dir["posts/*.md"].map do |filename|
-      id = filename.split(".").first.to_i
+      filename =~ %r{/(\d+)\.}
+      id = $1.to_i
       content = File.read filename
       created_at = File.ctime filename
       next unless content =~ /\A# (.*)$/
@@ -35,6 +36,6 @@ class Post
   end
   
   def self.find(id)
-    POSTS[id.to_s] or raise NotFound
+    POSTS[id.to_i] or raise NotFound
   end
 end

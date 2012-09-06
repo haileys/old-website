@@ -14,16 +14,18 @@ class Post
       filename =~ %r{/(\d+)\.}
       id = $1.to_i
       content = File.read filename
-      created_at = rbs.git("log", { format: "%aD" }, filename).strip
+      created_at = rbs.git("log", { format: "%aD" }, filename).lines.to_a.last.strip
       next unless content =~ /\A# (.*)$/
       Post.new id: id, title: $1, content: $'.strip, created_at: created_at
     end.compact
   end
   
-  POSTS = Hash[find_all_posts.map { |p| [p.id, p] }]
+  def self.all
+    @@all ||= Hash[find_all_posts.map { |p| [p.id, p] }]
+  end
   
   def self.recent(n = 5)
-    @@recent ||= POSTS.sort { |(a,_),(b,_)| b <=> a }.map { |_,p| p }
+    @@recent ||= all.sort { |(a,_),(b,_)| b <=> a }.map { |_,p| p }
     if n == :all
       @@recent
     else
@@ -36,6 +38,6 @@ class Post
   end
   
   def self.find(id)
-    POSTS[id.to_i] or raise NotFound
+    all[id.to_i] or raise NotFound
   end
 end

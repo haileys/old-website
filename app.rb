@@ -1,6 +1,8 @@
 require "bundler/setup"
 Bundler.require :default
 
+RubyPython.configure python_exe: "/usr/bin/python2.7" if production?
+
 Dir["./models/*.rb"].each &method(:require)
 
 CONFIG = YAML.load_file "config.yml"

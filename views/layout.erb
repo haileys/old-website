@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Charlie Somerville</title>
+    <title>
+        <% if @title %>
+            <%= @title %> &mdash; Charlie Somerville
+        <% else %>
+            Charlie Somerville
+        <% end %>
+    </title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
     <link href="/style.css?<%= COMMIT_ID %>" rel="stylesheet" />
 </head>

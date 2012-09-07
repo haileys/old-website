@@ -24,6 +24,10 @@ class Post
     @@all ||= Hash[find_all_posts.map { |p| [p.id, p] }]
   end
   
+  def self.clear_cache!
+    @@all = nil
+  end
+  
   def self.recent(n = 5)
     @@recent ||= all.sort { |(a,_),(b,_)| b <=> a }.map { |_,p| p }
     if n == :all

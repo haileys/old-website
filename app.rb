@@ -26,10 +26,12 @@ helpers do
 end
 
 before do
-  if Sinatra::Application.environment == :development
+  if development?
     # reload config
     Object.send :remove_const, :CONFIG
     CONFIG = YAML.load_file "config.yml"
+    # reload post cache
+    Post.clear_cache!
   end
 end
 
@@ -52,10 +54,6 @@ get "/blog/all" do
   erb :blog_all
 end
 
-get "/blog/new" do
-  only_charlie!
-end
-
 get "/blog/:id.md" do
   post = Post.find params[:id]
   content_type "text/plain"
@@ -64,6 +62,7 @@ end
 
 get "/blog/:id" do
   @post = Post.find params[:id]
+  @title = @post.title
   erb :blog_post
 end
 

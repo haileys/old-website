@@ -10,10 +10,7 @@
         <% @posts.each do |post| %>
             <item>
                 <title><%= post.title %></title>
-                <description>
-                    <%= format_post post.content %>
-                    &lt;style&gt;<%= Pygments.css %>&lt;/style&gt;
-                </descripion>
+                <description><%= format_post post.content %></descripion>
                 <link><%= post_path post %></link>
                 <guid><%= post_path post %></guid>
                 <pubDate><%= CGI.rfc1123_date Time.parse post.created_at %></pubDate>

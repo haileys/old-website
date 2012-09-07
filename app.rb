@@ -52,6 +52,12 @@ get "/blog" do
   erb :blog
 end
 
+get "/blog.rss" do
+  @posts = Post.recent
+  content_type "application/rss+xml"
+  erb :blog_rss, layout: false
+end
+
 get "/blog/all" do
   @posts = Post.recent :all
   @title = "All posts"

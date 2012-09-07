@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+        <title>Charlie Somerville</title>
+        <description>Charlie Somerville's blog</description>
+        <link>http://hailey.lol/blog</link>
+        <lastBuildDate><%= CGI.rfc1123_date Time.parse @posts.first.created_at %></lastBuildDate>
+        <ttl>1800</ttl>
+        
+        <% @posts.each do |post| %>
+            <item>
+                <title><%= post.title %></title>
+                <description>
+                    <%= format_post post.content %>
+                    &lt;style&gt;<%= Pygments.css %>&lt;/style&gt;
+                </descripion>
+                <link><%= post_path post %></link>
+                <guid><%= post_path post %></guid>
+                <pubDate><%= CGI.rfc1123_date Time.parse post.created_at %></pubDate>
+            </item>
+        <% end %>
+    </channel>
+</rss>

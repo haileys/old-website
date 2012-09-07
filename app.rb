@@ -1,3 +1,5 @@
+# coding: utf-8
+
 require "bundler/setup"
 Bundler.require :default
 
@@ -46,11 +48,13 @@ end
 
 get "/blog" do
   @posts = Post.recent
+  @title = "Blog"
   erb :blog
 end
 
 get "/blog/all" do
   @posts = Post.recent :all
+  @title = "All posts"
   erb :blog_all
 end
 
@@ -67,14 +71,17 @@ get "/blog/:id" do
 end
 
 get "/code" do
+  @title = "Code"
   erb :code
 end
 
 get "/talks" do
+  @title = "Talks"
   erb :talks
 end
 
 get "/resume" do
+  @title = "Résumé"
   erb :resume
 end
 

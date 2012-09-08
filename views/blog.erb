@@ -1,4 +1,4 @@
-<%== erb :_post, locals: { post: @posts.first } %>
+<%== erb :_post, locals: { post: @posts.first, abbreviated: true } %>
 
 <ul class="previous-posts">
     <% @posts.drop(1).each do |post| %>

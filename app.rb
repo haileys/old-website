@@ -25,6 +25,10 @@ helpers do
       Pygments.highlight source.map { |x| x[4..-1] }.join("\n"), lexer: lang[5..-1].strip, options: { encoding: "utf-8" }
     }.gsub("-", "—")
   end
+  
+  def abbreviated_post(source)
+    format_post source.split("\n\n").take(3).join("\n\n")
+  end
 end
 
 before do

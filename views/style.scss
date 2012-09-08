@@ -115,12 +115,14 @@ section {
             line-height:32px;
             vertical-align:bottom;
             border-bottom:1px solid #efefef;
+            padding-bottom:4px;
             margin-bottom:16px;
             
             h2 {
                 font-size:22px;
                 float:left;
                 margin-bottom:0px;
+                max-width:500px;
                 a {
                     color:inherit;
                     border:none;

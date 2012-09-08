@@ -14,7 +14,7 @@ class Post
       filename =~ %r{/(\d+)\.}
       id = $1.to_i
       content = File.read filename
-      created_at = rbs.git("log", { format: "%aD" }, filename).lines.to_a.last.strip
+      created_at = rbs.git("log", { format: "%aD" }, filename).lines.to_a.last || Time.now.to_s
       next unless content =~ /\A# (.*)$/
       Post.new id: id, title: $1, content: $'.strip, created_at: created_at
     end.compact

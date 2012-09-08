@@ -4,8 +4,17 @@
         <span>posted <%= time_ago_in_words post.created_at %> ago</span>
         <div class="clear"></div>
     </div>
-    <p>
-        <%== format_post post.content %>
-    </p>
+    <% if defined? abbreviated %>
+        <p>
+            <%== abbreviated_post post.content %>
+        </p>
+        <p>
+            <a href="<%= post_path post %>">Read more...</a>
+        </p>
+    <% else %>
+        <p>
+            <%== format_post post.content %>
+        </p>
+    <% end %>
 </div>
 <style><%= Pygments.css %></style>

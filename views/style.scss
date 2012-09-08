@@ -21,6 +21,10 @@ ul {
     margin-left:24px;
 }
 
+.clear {
+    clear:both;
+}
+
 header, section {
     display:block;
     width:720px;
@@ -108,7 +112,6 @@ section {
         
         .masthead {
             display:block;
-            height:32px;
             line-height:32px;
             vertical-align:bottom;
             border-bottom:1px solid #efefef;

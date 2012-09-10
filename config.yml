@@ -6,21 +6,21 @@ code:
       - ruby
       - c
     description:
-      "An online code pastebin/evaluator that can execute code written Ruby, PHP, Python, Lua, IO, Perl and JavaScript."
+      "An online code pastebin/evaluator that can execute code written in Ruby, PHP, Python, Lua, IO, Perl and JavaScript."
   -
     title: Slash
     link: https://github.com/slash-lang/slash
     tags:
       - c
     description:
-      "A language designed with the goal of being a sane PHP replacement. Inspired by Ruby, Perl and PHP."
+      "A work-in-progress language designed with the goal of being a sane PHP replacement. Ruby object model and semantics, Perl/Ruby-ish syntax, PHP execution model."
   -
     title: Racer
     link: https://github.com/charliesome/racer
     tags:
       - c
     description:
-      "A high performance Ruby web server using libuv and node.js's HTTP parser"
+      "A high performance Ruby web server written in C using libuv and node.js's HTTP parser. Faster than Thin, Puma and Unicorn."
   - title: JSOS
     link: https://github.com/charliesome/jsos
     tags:

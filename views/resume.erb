@@ -17,19 +17,21 @@
         <% end %>  
     </ul>
     
-    <h3>Other</h3>
-    
-    <ul>
-        <% CONFIG["resume"]["other"].each do |item| %>
-            <li>
-                <div class="masthead">
-                    <h4><%= item["title"] %> <span><%= item["subtitle"] %></span></h4>
-                    <span class="date"><%= item["date"] %></span>
-                </div>
-                <p>
-                    <%= item["description"] %>
-                </p>
-            </li>
-        <% end %>
-    </ul>
+    <% { "awards" => "Awards / Achievements", "other" => "Other" }.each do |key, section| %>
+        <h3><%= section %></h3>
+        
+        <ul>
+            <% CONFIG["resume"][key].each do |item| %>
+                <li>
+                    <div class="masthead">
+                        <h4><%= item["title"] %> <span><%= item["subtitle"] %></span></h4>
+                        <span class="date"><%= item["date"] %></span>
+                    </div>
+                    <p>
+                        <%= item["description"] %>
+                    </p>
+                </li>
+            <% end %>
+        </ul>
+    <% end %>
 </div>

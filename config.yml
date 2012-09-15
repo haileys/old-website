@@ -61,6 +61,13 @@ resume:
       tenure: 2011 - present
       description:
         Working with Ruby and PHP on the Tuts+ Premium team.
+  awards:
+    -
+      title: Victorian State iAward
+      subtitle: Secondary Student Project category
+      date: 2012
+      description:
+        I won the Victorian State iAward in the Secondary Student Project category for a website I designed and developed for a mock travel agency in VCE Interactive Digital Multimedia.
   other:
     -
       title: Ruby on Rails DoS Vulnerability

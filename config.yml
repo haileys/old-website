@@ -75,3 +75,8 @@ resume:
       date: 2012
       description:
         "A denial of service vulnerability in Rails' implementation of digest authentication I discovered and reported."
+    -
+      title: MyBB CSRF vulnerability
+      date: 2011
+      description:
+        "A CSRF vulnerability in MyBB's markread functionality"

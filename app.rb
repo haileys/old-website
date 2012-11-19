@@ -11,8 +11,6 @@ COMMIT_ID = File.read(".git/refs/heads/master").strip
 set :erb, escape_html: true
 
 helpers do
-  include ActionView::Helpers::DateHelper
-  
   def post_path(post)
     "/blog/#{post.slug}"
   end

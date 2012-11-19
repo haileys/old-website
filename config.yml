@@ -2,7 +2,7 @@ posts:
   - how-to-use-ruby-like-php              2012-09-08
   - php-quotes-performance                2012-09-08
   - pygments-rb                           2012-09-11
-  - recovering-from-segfaults-in-ruby     2012-11-20 00:22
+  - recovering-from-segfaults-in-ruby     2012-11-20
 code:
   -
     title: eval.in

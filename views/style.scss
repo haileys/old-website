@@ -25,6 +25,11 @@ ul {
     clear:both;
 }
 
+.amp {
+    font-family: Baskerville, Palatino, "Book Antiqua", serif;
+    font-style: italic;
+}
+
 header, section {
     display:block;
     width:720px;
@@ -240,5 +245,6 @@ section {
     
     pre, code {
         font-family:Monaco, Consolas, "Courier New", monospace;
+        font-size:12px;
     }
 }

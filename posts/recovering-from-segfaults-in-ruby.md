@@ -75,3 +75,5 @@ Running that bit of code gives me this output:
     ... snip ...
     
     Keep on truckin' Ruby!
+
+I have a [ticket open on the Ruby bug tracker](http://bugs.ruby-lang.org/issues/7402) to get this fixed up by avoiding calling methods from the segfault handler. Until then, please don't use this 'feature' seriously or rely on the current behaviour (as fun as it may be!)

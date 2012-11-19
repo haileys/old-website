@@ -14,7 +14,7 @@ class Post
   def self.find_all_posts
     CONFIG["posts"].map { |s| s.strip.split(/\s+/) }.map do |slug, date|
       filename = "posts/#{slug}.md"
-      content = File.read filename
+      content = File.read(filename).force_encoding "utf-8" # seriously wtf
       created_at = date || Time.now.to_s
       next unless content =~ /\A# (.*)$/
       Post.new slug: slug, title: $1, content: $'.strip, created_at: created_at

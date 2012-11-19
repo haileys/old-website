@@ -1,7 +1,7 @@
 class Post
   class NotFound < StandardError; end
   
-  attr_accessor :id, :title, :content, :created_at
+  attr_accessor :slug, :title, :content, :created_at
   
   def initialize(opts = {})
     opts.each do |k,v|
@@ -10,18 +10,17 @@ class Post
   end
   
   def self.find_all_posts
-    Dir["posts/*.md"].map do |filename|
-      filename =~ %r{/(\d+)\.}
-      id = $1.to_i
+    CONFIG["posts"].map { |s| s.strip.split(/\s+/) }.map do |slug, date|
+      filename = "posts/#{slug}.md"
       content = File.read filename
-      created_at = rbs.git("log", { format: "%aD" }, filename).lines.to_a.last || Time.now.to_s
+      created_at = date || Time.now.to_s
       next unless content =~ /\A# (.*)$/
-      Post.new id: id, title: $1, content: $'.strip, created_at: created_at
+      Post.new slug: slug, title: $1, content: $'.strip, created_at: created_at
     end.compact
   end
   
   def self.all
-    @@all ||= Hash[find_all_posts.map { |p| [p.id, p] }]
+    @@all ||= Hash[find_all_posts.map { |p| [p.slug, p] }]
   end
   
   def self.clear_cache!
@@ -29,19 +28,14 @@ class Post
   end
   
   def self.recent(n = 5)
-    @@recent ||= all.sort { |(a,_),(b,_)| b <=> a }.map { |_,p| p }
-    if n == :all
-      @@recent
-    else
-      @@recent.take n
-    end
+    all.to_a.reverse.last(n).map { |k,v| v }
   end
   
   def self.latest
-    recent(:all).first
+    recent(1).first
   end
   
-  def self.find(id)
-    all[id.to_i] or raise NotFound
+  def self.find(slug)
+    all[slug] or raise NotFound
   end
 end

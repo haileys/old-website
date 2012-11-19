@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class Post
   class NotFound < StandardError; end
   
@@ -12,7 +14,7 @@ class Post
   def self.find_all_posts
     CONFIG["posts"].map { |s| s.strip.split(/\s+/) }.map do |slug, date|
       filename = "posts/#{slug}.md"
-      content = File.read filename, "r:utf-8"
+      content = File.read filename
       created_at = date || Time.now.to_s
       next unless content =~ /\A# (.*)$/
       Post.new slug: slug, title: $1, content: $'.strip, created_at: created_at

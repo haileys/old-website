@@ -17,7 +17,7 @@ class Post
     CONFIG["posts"].map { |s| s.strip.split(/\s+/) }.map do |slug, date|
       filename = "posts/#{slug}.md"
       content = File.read(filename).force_encoding "utf-8" # seriously wtf
-      created_at = date ? DateTime.parse "#{date} UTC+10" : DateTime.now
+      created_at = date || Time.now.strftime("%Y-%m-%d")
       next unless content =~ /\A# (.*)$/
       Post.new slug: slug, title: $1, content: $'.strip, created_at: created_at
     end.compact

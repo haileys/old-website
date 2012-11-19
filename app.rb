@@ -16,7 +16,7 @@ helpers do
   include ActionView::Helpers::DateHelper
   
   def post_path(post)
-    "/blog/#{post.id}-#{post.title.parameterize}"
+    "/blog/#{post.slug}"
   end
   
   def format_post(source)
@@ -68,14 +68,14 @@ get "/blog/all" do
   erb :blog_all
 end
 
-get "/blog/:id.md" do
-  post = Post.find params[:id]
+get "/blog/:slug.md" do
+  post = Post.find params[:slug]
   content_type "text/plain"
   "# #{post.title}\n\n#{post.content}"
 end
 
-get "/blog/:id" do
-  @post = Post.find params[:id]
+get "/blog/:slug" do
+  @post = Post.find params[:slug]
   @title = @post.title
   erb :blog_post
 end

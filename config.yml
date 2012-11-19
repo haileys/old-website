@@ -1,3 +1,8 @@
+posts:
+  - how-to-use-ruby-like-php              2012-09-08
+  - php-quotes-performance                2012-09-08
+  - pygments-rb                           2012-09-11
+  - ruby-internals-how-refinements-work
 code:
   -
     title: eval.in

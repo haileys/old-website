@@ -26,6 +26,12 @@ code:
       - c
     description:
       "A high performance Ruby web server written in C using libuv and node.js's HTTP parser. Faster than Thin, Puma and Unicorn."
+  - title: ptydo
+    link: https://github.com/charliesome/ptydo
+    tags:
+      - c
+    description:
+      "Runs a program in its own pseudo-terminal exposed as stdin/stdout"
   - title: JSOS
     link: https://github.com/charliesome/jsos
     tags:

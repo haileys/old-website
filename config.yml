@@ -4,6 +4,12 @@ posts:
   - pygments-rb                           2012-09-11
   - recovering-from-segfaults-in-ruby     2012-11-20
 code:
+  - title: better_errors
+    link: https://github.com/charliesome/better_errors
+    tags:
+      - ruby
+    description:
+      "A better error page for Rails and other Rack apps. Includes source code inspection, a live REPL and local/instance variable inspection for all stack frames."
   -
     title: eval.in
     link: http://eval.in/

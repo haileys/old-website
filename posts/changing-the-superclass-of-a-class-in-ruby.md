@@ -2,7 +2,7 @@
 
 `dup` is an interesting method. While looking into a strange bug currently on Ruby's issues tracker [caused by the interplay of modules and dup](http://bugs.ruby-lang.org/issues/7107), I decided to take a dive into the MRI source to find out exactly what happens behind the scenes when `dup` is called. This led to the discovery of quite an interesting bug, which I will detail below.
 
-Here's the code to `Kernel#dup` - with the exception of `Proc` and `Binding`, which override `dup` with their own implementations, this is the method called whenever you call the `dup` method on any object in Ruby.
+Here's the code to `Kernel#dup`. With the exception of `Proc` and `Binding`, which override `dup` with their own implementations, this is the method called whenever you call the `dup` method on any object in Ruby.
 
 First, it checks that the object being duped is not a 'special const' - a Fixnum, Symbol, true, false or nil (and in some cases Floats, but that's a story for another day). These are values in Ruby that act like objects but aren't actually. They can't hold singleton methods or any instance-specific state and they cannot be duped.
 

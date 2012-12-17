@@ -3,7 +3,7 @@ posts:
   - pygments-rb                                     2012-09-11
   - recovering-from-segfaults-in-ruby               2012-11-20
   - changing-the-superclass-of-a-class-in-ruby      2012-12-14
-  - why-do-singleton-methods-make-ruby-slow         2012-12-17
+  - why-do-singleton-methods-make-ruby-slow         2012-12-18
 code:
   - title: better_errors
     link: https://github.com/haileysome/better_errors

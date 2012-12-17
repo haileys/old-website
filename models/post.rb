@@ -32,7 +32,7 @@ class Post
   end
   
   def self.recent(n = 5)
-    all.to_a.reverse.last(n).map { |k,v| v }
+    all.to_a.last(n).map { |k,v| v }.reverse
   end
   
   def self.latest

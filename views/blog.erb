@@ -1,10 +1,13 @@
 <%== erb :_post, locals: { post: @posts.first, abbreviated: true } %>
 
 <ul class="previous-posts">
-    <% @posts.drop(1).each do |post| %>
+    <% @posts.drop(1).each_with_index do |post, index| %>
         <li>
             <h3><a href="<%= post_path post %>"><%= post.title %></a></h3>
             <span><%= post.created_at %></span>
-        </li>
+        </li>    
+        <% if index.odd? %>
+            <div style="clear:both;"></div>
+        <% end %>
     <% end %>
 </ul>

@@ -2,7 +2,7 @@
     <h3>Past Posts</h3>
     
     <ul>
-        <% @posts.each do |post| %>
+        <% @posts.each_with_index do |post, index| %>
             <li>
                 <div class="masthead">
                     <h4>
@@ -13,6 +13,9 @@
                     </span>
                 </div>
             </li>
+            <% if index.odd? %>
+                <div style="clear:both;"></div>
+            <% end %>
         <% end %>  
     </ul>
 </div>

@@ -4,7 +4,7 @@ task :deploy do
       export RACK_ENV=production
       cd /var/www/hailey.lol
       git pull origin master
-      /usr/local/rvm/wrappers/ruby-1.9.3-p194/bundle install --deployment | grep -v '^Using'
+      /usr/local/rvm/wrappers/ruby-2.0.0-preview2/bundle install --deployment | grep -v '^Using'
       touch tmp/restart.txt
       exit
     SH

@@ -59,12 +59,6 @@ get "/blog.rss" do
   erb :blog_rss, layout: false
 end
 
-get "/blog/all" do
-  @posts = Post.recent :all
-  @title = "All posts"
-  erb :blog_all
-end
-
 get "/blog/:slug.md" do
   post = Post.find params[:slug]
   content_type "text/plain"

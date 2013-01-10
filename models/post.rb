@@ -31,8 +31,8 @@ class Post
     @@all = nil
   end
   
-  def self.recent(n = 5)
-    all.to_a.last(n).map { |k,v| v }.reverse
+  def self.recent
+    all.to_a.map { |k,v| v }.reverse
   end
   
   def self.latest

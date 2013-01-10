@@ -36,7 +36,7 @@ class Post
   end
   
   def self.latest
-    recent(1).first
+    recent.first
   end
   
   def self.find(slug)

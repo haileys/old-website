@@ -4,7 +4,7 @@ I was originally going to wait for a week after 3.2.11 was released fixing [CVE-
 
 Reminder: If you *haven't* upgraded your app yet, **take it down *now***. Your app **will** get pwned if you don't.
 
-So without further ado, here's the proof of concept I cooked up in collaboration with [espes](https://github.com/espes) and [chendo](http://twitter.com/chendo). It's a bit more complex than the other ones floating around, but it has the advantage of being self-executing.
+So without further ado, here's the proof of concept I cooked up in collaboration with [espes](https://github.com/espes) and [chendo](http://twitter.com/chendo). It's a bit more complex than the other ones floating around, but it has the advantage of being self-executing. There are simpler self-executing exploits, but I'm going to talk about the exploit we came up with a few days ago instead because, well, it's ours!
 
     \ruby
     require "base64"
@@ -82,7 +82,7 @@ Unfortunately, actually getting Rails to deserialize this YAML was the hard part
 
 We did however find that we could `Marshal.dump` and `Marshal.load` these two objects as much as we liked. Since `Marshal` is written in C, it uses Ruby's C API directly and is able to deserialize properly even without the right methods on the object it's trying to deserialize.
 
-This is the part where espes went away for a while to hunt for an alternate way to load this object up. When he came back a little while later, he had made the most awesome discovery.
+This is the part where espes went away for a while to hunt for an alternate way to load this object up. When he came back just a few hours later, he had made the most awesome discovery.
 
 If you take a look at [`Rack::Session::Abstract::SessionHash`](https://github.com/rack/rack/blob/63b5adf0d95e6d3f0f549ec87e9afbc21e934d3c/lib/rack/session/abstract/id.rb#L23), you'll notice it implements a few collection-like methods such as `[]`, `[]=`, `has_key?` and friends. Whenever any of these methods is called, it calls `load_for_read!` on itself. `load_for_read!` looks like this:
 

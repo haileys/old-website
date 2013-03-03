@@ -1,6 +1,7 @@
 # coding: utf-8
 
 require "cgi"
+require "yaml"
 require "bundler/setup"
 Bundler.require :default
 

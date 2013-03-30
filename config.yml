@@ -5,6 +5,7 @@ posts:
   - changing-the-superclass-of-a-class-in-ruby      2012-12-14
   - why-do-singleton-methods-make-ruby-slow         2012-12-18
   - rails-3.2.10-remote-code-execution              2013-01-10
+  - things-that-clear-rubys-method-cache            2013-03-30
 code:
   - title: better_errors
     link: https://github.com/charliesome/better_errors

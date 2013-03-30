@@ -77,25 +77,36 @@ resume:
   work:
     -
       company: Envato
-      tenure: 2011 - present
+      tenure: 2012 - present
+      description:
+        Working with Ruby on Rails on the Marketplace team.
+    -
+      company: Envato
+      tenure: 2011 - 2012
       description:
         Working with Ruby and PHP on the Tuts+ Premium team.
-  awards:
-    -
-      title: Victorian State iAward
-      subtitle: Secondary Student Project category
-      date: 2012
-      description:
-        I won the Victorian State iAward in the Secondary Student Project category for a website I designed and developed for a mock travel agency in VCE Interactive Digital Multimedia.
   other:
-    -
-      title: Ruby on Rails DoS Vulnerability
+    - title: Ruby on Rails XSS Vulnerability
+      subtitle: CVE-2013-1855
+      date: 2013
+      description:
+        "A subtle bug in Rails' sanitize_css method I discovered and reported that allows specially crafted input to inject JavaScript into a page."
+    - title: Dragonfly RCE Vulnerability
+      subtitle: CVE-2013-1756
+      date: 2013
+      description:
+        "A vulnerability I discovered and reported in the Dragonfly image processing library for Ruby that allows attackers to execute arbitrary Ruby code."
+    - title: Ruby on Rails RCE Vulnerability
+      subtitle: CVE-2013-0156
+      date: 2013
+      description:
+        "A vulnerability in Rails' parameter parsing that allows attackers to execute arbitrary code I co-discovered and reported."
+    - title: Ruby on Rails DoS Vulnerability
       subtitle: CVE-2012-3424
       date: 2012
       description:
         "A denial of service vulnerability in Rails' implementation of digest authentication I discovered and reported."
-    -
-      title: MyBB CSRF vulnerability
+    - title: MyBB CSRF vulnerability
       date: 2011
       description:
-        "A CSRF vulnerability in MyBB's markread functionality"
+        "A CSRF vulnerability in MyBB's markread functionality."

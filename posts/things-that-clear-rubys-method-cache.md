@@ -159,3 +159,10 @@ In some cases, these methods raise exceptions extended with `IO::WaitWritable` o
 
     \ruby
     $stdin.read_nonblock(1024) # raises Errno::EAGAIN extended with IO::WaitReadable
+
+### OpenStructs
+
+Ruby's `OpenStruct` class defines accessor methods dynamically when created. This means that the method caches are cleared every time an OpenStruct is instantiated:
+
+    \ruby
+    OpenStruct.new(a: 1, b: 2)

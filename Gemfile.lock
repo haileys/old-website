@@ -1,17 +1,11 @@
-GIT
-  remote: git://github.com/haileysome/pygments.rb.git
-  revision: 12b7cfca829b694732ca6521e2314a36eb728329
-  ref: 12b7cfca829b694732ca6521e2314a36eb728329
-  specs:
-    pygments.rb (0.3.2)
-      posix-spawn (~> 0.3.6)
-      yajl-ruby (~> 1.1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
     erubis (2.7.0)
-    posix-spawn (0.3.6)
+    posix-spawn (0.3.8)
+    pygments.rb (0.5.4)
+      posix-spawn (~> 0.3.6)
+      yajl-ruby (~> 1.1.0)
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
@@ -30,7 +24,7 @@ PLATFORMS
 
 DEPENDENCIES
   erubis
-  pygments.rb!
+  pygments.rb
   rbs
   rdiscount
   sass

@@ -77,16 +77,6 @@ get "/code" do
   erb :code
 end
 
-get "/talks" do
-  @title = "Talks"
-  erb :talks
-end
-
-get "/resume" do
-  @title = "Résumé"
-  erb :resume
-end
-
 get "/style.css" do
   scss :style
 end

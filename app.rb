@@ -20,7 +20,7 @@ helpers do
   def format_post(source)
     markdown source.gsub(/^    \\[a-z]+\s*\n(    .*(\n|$)|\s*(\n|$))*/) { |snippet|
       lang, *source = snippet.lines.to_a
-      Pygments.highlight source.map { |x| x[4..-1] }, lexer: lang[5..-1].strip, options: { encoding: "utf-8" }
+      Pygments.highlight source.map { |x| x[4..-1] }.join, lexer: lang[5..-1].strip, options: { encoding: "utf-8" }
     }
   end
 

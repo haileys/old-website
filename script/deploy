@@ -1,0 +1,9 @@
+#!/bin/bash -e
+ssh root@hailey.lol -- "
+    export RACK_ENV=production
+    cd /var/www/hailey.lol
+    git fetch
+    git reset --hard origin/master
+    /opt/rubies/ruby-2.0.0-p0/bin/bundle install --deployment | grep -v '^Using'
+    touch tmp/restart.txt
+"

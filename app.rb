@@ -16,14 +16,14 @@ helpers do
   def post_path(post)
     "/blog/#{post.slug}"
   end
-  
+
   def format_post(source)
     markdown source.gsub(/^    \\[a-z]+\s*\n(    .*(\n|$)|\s*(\n|$))*/) { |snippet|
       lang, *source = snippet.lines.to_a
-      Pygments.highlight source.map { |x| x[4..-1] }.join("\n"), lexer: lang[5..-1].strip, options: { encoding: "utf-8" }
+      Pygments.highlight source.map { |x| x[4..-1] }, lexer: lang[5..-1].strip, options: { encoding: "utf-8" }
     }
   end
-  
+
   def abbreviated_post(source)
     format_post source.split("\n\n").take(3).join("\n\n")
   end

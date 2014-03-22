@@ -21,6 +21,12 @@ code:
       - c
     description:
       "An online code pastebin/evaluator that can execute code written in Ruby, PHP, Python, Lua, IO, Perl and JavaScript."
+  - title: rustboot
+    link: https://github.com/haileysome/rustboot
+    tags:
+      - rust
+    description:
+      "A tiny proof of concept 32 bit kernel in Rust."
   -
     title: Slash
     link: https://github.com/slash-lang/slash

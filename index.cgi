@@ -13,5 +13,5 @@ puts <<-"HTML"
   <A HREF=mailto:hailey@hailey.lol>E-Mail</A>
 <HR>
 <P>
-  <I>Last Updated: #{File.stat(__FILE__).mtime.utc}</I>
+  <I>Last Updated: #{`git log --format='%aD' -1 #{__FILE__}`}</I>
 HTML

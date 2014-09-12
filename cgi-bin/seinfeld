@@ -12,12 +12,12 @@ end
 # so imagemagick can find the ttf file (lol)
 Dir.chdir(__dir__)
 
-image = Magick::Image.new(900, 432)
+image = Magick::Image.new(1200, 432)
 
 # black shadow:
 Magick::Draw.new.tap do |d|
   d.fill("#161413")
-  d.translate(7, 104)
+  d.translate(157, 104)
   d.path("M 818.06,12.00 C 821.48,19.65 823.21,27.80 823.01,36.44 C 821.10,120.61 640.39,218.57 420.74,254.50 C 217.69,287.71 50.61,256.60 28.00,185.22 C 58.02,252.23 221.25,280.63 418.39,248.38 C 638.04,212.45 818.76,114.49 820.66,30.32 C 820.81,23.95 819.90,17.84 818.06,12.00 z")
   d.draw(image)
 end
@@ -25,6 +25,7 @@ end
 # yellow ellipse:
 Magick::Draw.new.tap do |d|
   d.fill("#fcd720")
+  d.translate(150, 0)
   d.path("M 432.18,47.93 C 651.84,12.00 829.44,51.35 827.52,135.53 C 825.62,219.70 644.91,317.67 425.25,353.59 C 205.59,389.52 28.00,350.17 29.91,266.00 C 31.82,181.82 212.53,83.86 432.18,47.93 z")
   d.draw(image)
 end
@@ -35,6 +36,7 @@ Magick::Draw.new.tap do |d|
   d.font("seinfeld.ttf")
   d.font_size(200)
   d.text_align(Magick::CenterAlign)
+  d.translate(150, 0)
   d.scale(1.1, 1.8)
   d.text(392, 177, text)
   d.draw(image)
@@ -46,6 +48,7 @@ Magick::Draw.new.tap do |d|
   d.font("seinfeld.ttf")
   d.font_size(200)
   d.text_align(Magick::CenterAlign)
+  d.translate(150, 0)
   d.scale(1.1, 1.8)
   d.text(390, 175, text)
   d.draw(image)

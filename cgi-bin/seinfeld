@@ -1,7 +1,7 @@
 #!/opt/rubies/ruby-2.1.2/bin/ruby
 require "RMagick"
 
-if %r{\A/(.+?)(\.png)?} =~ ENV["PATH_INFO"]
+if %r{\A/(.+?)(\.png)?\z} =~ ENV["PATH_INFO"]
   text = $1
 else
   puts "Content-Type: text/html\n\n"

@@ -1,5 +1,5 @@
 #!/opt/rubies/ruby-2.1.2/bin/ruby
-require "rmagick"
+require "RMagick"
 require "cgi"
 
 cgi = CGI.new

@@ -34,8 +34,9 @@ Magick::Draw.new.tap do |d|
   d.fill("#161413")
   d.font("seinfeld.ttf")
   d.font_size(200)
+  d.text_align(Magick::CenterAlign)
   d.scale(1.1, 1.8)
-  d.text(42, 177, text)
+  d.text(392, 177, text)
   d.draw(image)
 end
 
@@ -44,15 +45,19 @@ Magick::Draw.new.tap do |d|
   d.fill("#e30922")
   d.font("seinfeld.ttf")
   d.font_size(200)
+  d.text_align(Magick::CenterAlign)
   d.scale(1.1, 1.8)
-  d.text(40, 175, text)
+  d.text(390, 175, text)
   d.draw(image)
 end
 
 file = "/tmp/seinfeld-#{$$}.png"
 image.write(file)
 
-puts "Content-Type: image/png\n\n"
-print File.read(file)
-
-File.delete(file)
+if ENV["DEBUG"]
+  `open #{file}`
+else
+  puts "Content-Type: image/png\n\n"
+  print File.read(file)
+  File.delete(file)
+end

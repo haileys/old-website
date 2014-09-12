@@ -1,8 +1,13 @@
 #!/opt/rubies/ruby-2.1.2/bin/ruby
 require "RMagick"
-require "cgi"
 
-cgi = CGI.new
+if %r{\A/(.+)(\.png)?} =~ ENV["PATH_INFO"]
+  text = $1
+else
+  puts "Content-Type: text/html\n\n"
+  puts "Usage: https://hailey.lol/cgi-bin/seinfeld/YOUR_TEXT.png"
+  exit
+end
 
 # so imagemagick can find the ttf file (lol)
 Dir.chdir(__dir__)
@@ -30,7 +35,7 @@ Magick::Draw.new.tap do |d|
   d.font("seinfeld.ttf")
   d.font_size(200)
   d.scale(1.1, 1.8)
-  d.text(42, 177, cgi["text"])
+  d.text(42, 177, text)
   d.draw(image)
 end
 
@@ -40,7 +45,7 @@ Magick::Draw.new.tap do |d|
   d.font("seinfeld.ttf")
   d.font_size(200)
   d.scale(1.1, 1.8)
-  d.text(40, 175, cgi["text"])
+  d.text(40, 175, text)
   d.draw(image)
 end
 

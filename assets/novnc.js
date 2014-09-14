@@ -3988,13 +3988,13 @@ function constructor() {
 function connect() {
     Util.Debug(">> RFB.connect");
     var uri;
-    
-    if (typeof UsingSocketIO !== "undefined") {
-        uri = "http";
-    } else {
-        uri = conf.encrypt ? "wss" : "ws";
-    }
-    uri += "://" + rfb_host + ":" + rfb_port + "/" + rfb_path;
+
+    // if (typeof UsingSocketIO !== "undefined") {
+    //     uri = "http";
+    // } else {
+    //     uri = conf.encrypt ? "wss" : "ws";
+    // }
+    uri = "wss://" + rfb_host + ":" + rfb_port + "/" + rfb_path;
     Util.Info("connecting to " + uri);
 
     ws.open(uri, conf.wsProtocols);

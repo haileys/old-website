@@ -13,12 +13,15 @@ begin
 
   FileUtils.cp("/var/win95/hdd.img", "#{instance_root}/hdd.img")
 
+  qemu_log = File.open("#{instance_root}/qemu.log", "w")
+
   qemu_pid = spawn "/usr/bin/qemu-system-i386",
     "-hda", "#{instance_root}/hdd.img",
     "-net", "none",
     "-nographic",
     "-vnc", "unix:#{instance_root}/vnc.sock",
-    "-m", "16"
+    "-m", "16",
+    { 1 => qemu_log, 2 => qemu_log }
 
   Timeout.timeout(1) do
     until File.exist?("#{instance_root}/vnc.sock")

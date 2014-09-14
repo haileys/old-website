@@ -6,13 +6,10 @@
 <body>
   <canvas id="console"></div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="assets/novnc.js?1"></script>
+<script src="assets/novnc.js?2"></script>
 <script>
-$(function() {
-  var con = document.getElementById("console");
-  var rfb = new RFB({ target: con });
-  rfb.connect("hailey.lol", 8080, null, "ws-bin/vnc");
-});
+var con = document.getElementById("console");
+var rfb = new RFB({ target: con });
+rfb.connect("hailey.lol", 8080, null, "ws-bin/vnc");
 </script>
 </html>

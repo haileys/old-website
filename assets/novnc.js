@@ -86,22 +86,22 @@ if (!Array.prototype.indexOf)
 }
 
 
-// 
+//
 // requestAnimationFrame shim with setTimeout fallback
 //
 
 window.requestAnimFrame = (function(){
-    return  window.requestAnimationFrame       || 
-            window.webkitRequestAnimationFrame || 
-            window.mozRequestAnimationFrame    || 
-            window.oRequestAnimationFrame      || 
-            window.msRequestAnimationFrame     || 
+    return  window.requestAnimationFrame       ||
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame    ||
+            window.oRequestAnimationFrame      ||
+            window.msRequestAnimationFrame     ||
             function(callback){
                 window.setTimeout(callback, 1000 / 60);
             };
 })();
 
-/* 
+/*
  * ------------------------------------------------------
  * Namespaced in Util
  * ------------------------------------------------------
@@ -349,7 +349,7 @@ Util.addEvent = function (obj, evType, fn){
         var r = obj.attachEvent("on"+evType, fn);
         return r;
     } else if (obj.addEventListener){
-        obj.addEventListener(evType, fn, false); 
+        obj.addEventListener(evType, fn, false);
         return true;
     } else {
         throw("Handler could not be attached");
@@ -417,7 +417,7 @@ Util.Flash = (function(){
     }
     version = v.match(/\d+/g);
     return {version: parseInt(version[0] || 0 + '.' + version[1], 10) || 0, build: parseInt(version[2], 10) || 0};
-}()); 
+}());
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
@@ -507,7 +507,7 @@ decode: function (data, offset) {
             console.error("Illegal character code " + data.charCodeAt(i) + " at position " + i);
             continue;
         }
-        
+
         // Collect data into leftdata, update bitcount
         leftdata = (leftdata << 6) | c;
         leftbits += 6;
@@ -526,7 +526,7 @@ decode: function (data, offset) {
 
     // If there are any bits left, the base64 string was corrupted
     if (leftbits) {
-        throw {name: 'Base64-Error', 
+        throw {name: 'Base64-Error',
                message: 'Corrupted base64 string'};
     }
 
@@ -562,16 +562,16 @@ decode: function (data, offset) {
  *
  * Permission to use, copy, modify, and distribute this software
  * and its documentation for NON-COMMERCIAL or COMMERCIAL purposes and
- * without fee is hereby granted, provided that this copyright notice is kept 
- * intact. 
- * 
+ * without fee is hereby granted, provided that this copyright notice is kept
+ * intact.
+ *
  * WIDGET WORKSHOP MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY
  * OF THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
  * TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
  * PARTICULAR PURPOSE, OR NON-INFRINGEMENT. WIDGET WORKSHOP SHALL NOT BE LIABLE
  * FOR ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR
  * DISTRIBUTING THIS SOFTWARE OR ITS DERIVATIVES.
- * 
+ *
  * THIS SOFTWARE IS NOT DESIGNED OR INTENDED FOR USE OR RESALE AS ON-LINE
  * CONTROL EQUIPMENT IN HAZARDOUS ENVIRONMENTS REQUIRING FAIL-SAFE
  * PERFORMANCE, SUCH AS IN THE OPERATION OF NUCLEAR FACILITIES, AIRCRAFT
@@ -952,7 +952,7 @@ function constructor() {
             Util.Warn("Data URI scheme cursor not supported");
         }
         c.style.cursor = curSave;
-    } catch (exc2) { 
+    } catch (exc2) {
         Util.Error("Data URI scheme cursor test exception: " + exc2);
         conf.cursor_uri = false;
     }
@@ -962,7 +962,7 @@ function constructor() {
 }
 
 rescale = function(factor) {
-    var c, tp, x, y, 
+    var c, tp, x, y,
         properties = ['transform', 'WebkitTransform', 'MozTransform', null];
     c = conf.target;
     tp = properties.shift();
@@ -1300,8 +1300,8 @@ that.subTile = function(x, y, w, h, color) {
                 data[p + 1] = green;
                 data[p + 2] = blue;
                 data[p + 3] = 255;
-            }   
-        } 
+            }
+        }
     } else {
         that.fillRect(tile_x + x, tile_y + y, w, h, color);
     }
@@ -1427,7 +1427,7 @@ scan_renderQ = function() {
             case 'blitRgb':
                 that.blitRgbImage(a.x, a.y, a.width, a.height, a.data, 0);
                 break;
-            case 'img':    
+            case 'img':
                 if (a.img.complete) {
                     that.drawImage(a.img, a.x, a.y);
                 } else {
@@ -1603,7 +1603,7 @@ function Keyboard(defaults) {
 var that           = {},  // Public API methods
     conf           = {},  // Configuration attributes
 
-    keyDownList    = [];         // List of depressed keys 
+    keyDownList    = [];         // List of depressed keys
                                  // (even if they are happy)
 
 // Configuration attributes
@@ -1615,7 +1615,7 @@ Util.conf_defaults(conf, that, defaults, [
     ]);
 
 
-// 
+//
 // Private functions
 //
 
@@ -1778,7 +1778,7 @@ function releaseMouse() {
     }
     mouseCaptured = false;
 }
-// 
+//
 // Private functions
 //
 
@@ -1808,7 +1808,7 @@ function onMouseButton(e, down) {
             if (doubleClickTimer == null) {
                 lastTouchPos = pos;
             } else {
-                clearTimeout(doubleClickTimer); 
+                clearTimeout(doubleClickTimer);
 
                 // When the distance between the two touches is small enough
                 // force the position of the latter touch to the position of
@@ -2015,7 +2015,7 @@ return that;  // Return the public API interface
  *    any source distribution.
  */
 
- 
+
 var tinf;
 
 function JSUnzip() {
@@ -2023,13 +2023,13 @@ function JSUnzip() {
     this.getInt = function(offset, size) {
         switch (size) {
         case 4:
-            return  (this.data.charCodeAt(offset + 3) & 0xff) << 24 | 
-                    (this.data.charCodeAt(offset + 2) & 0xff) << 16 | 
-                    (this.data.charCodeAt(offset + 1) & 0xff) << 8 | 
+            return  (this.data.charCodeAt(offset + 3) & 0xff) << 24 |
+                    (this.data.charCodeAt(offset + 2) & 0xff) << 16 |
+                    (this.data.charCodeAt(offset + 1) & 0xff) << 8 |
                     (this.data.charCodeAt(offset + 0) & 0xff);
             break;
         case 2:
-            return  (this.data.charCodeAt(offset + 1) & 0xff) << 8 | 
+            return  (this.data.charCodeAt(offset + 1) & 0xff) << 8 |
                     (this.data.charCodeAt(offset + 0) & 0xff);
             break;
         default:
@@ -2106,7 +2106,7 @@ function JSUnzip() {
             var localExtraFieldLength = this.getInt(relativeOffsetOfLocalHeader + 28, 2);
             var localFileContent = relativeOffsetOfLocalHeader + 30 + localFileNameLength + localExtraFieldLength;
 
-            this.files[fileName] = 
+            this.files[fileName] =
             {
                 'fileComment' : fileComment,
                 'compressionMethod' : compressionMethod,
@@ -2119,8 +2119,8 @@ function JSUnzip() {
             fileOffset += 46 + fileNameLength + extraFieldLength + fileCommentLength;
         }
         return { 'status' : true }
-    };     
-    
+    };
+
 
     this.read = function(fileName) {
         var fileInfo = this.files[fileName];
@@ -2141,7 +2141,7 @@ function JSUnzip() {
         }
         return { 'status' : false, 'error' : "File '" + fileName + "' doesn't exist in zip" };
     };
-    
+
 };
 
 
@@ -2182,7 +2182,7 @@ function JSUnzip() {
 /*
  * tinflate javascript port by Erik Moller in May 2011.
  * emoller@opera.com
- * 
+ *
  * read_bits() patched by mike@imidio.com to allow
  * reading more then 8 bits (needed in some zlib streams)
  */
@@ -2190,7 +2190,7 @@ function JSUnzip() {
 "use strict";
 
 function TINF() {
-    
+
 this.OK = 0;
 this.DATA_ERROR = (-3);
 this.WINDOW_SIZE = 32768;
@@ -2211,7 +2211,7 @@ this.DATA = function(that) {
    this.bitcount = 0;
 
    this.dest = [];
-   
+
    this.history = [];
 
    this.ltree = new that.TREE(); /* dynamic length/symbol tree */
@@ -2370,7 +2370,7 @@ this.decode_symbol = function(d, t)
         d.tag = d.tag | (d.source[d.sourceIndex++] & 0xff) << d.bitcount;
         d.bitcount += 8;
     }
-    
+
     var sum = 0, cur = 0, len = 0;
     do {
         cur = 2 * cur + ((d.tag & (1 << len)) >> len);
@@ -2504,7 +2504,7 @@ this.inflate_block_data = function(d, lt, dt)
 
          if (offs < 0)
              throw ("Invalid zlib offset " + offs);
-         
+
          /* copy match */
          for (i = offs; i < offs + length; ++i) {
             //ddest[ddestlength++] = ddest[i];
@@ -2527,7 +2527,7 @@ this.inflate_uncompressed_block = function(d)
        d.bitcount = 0;
        d.tag = 0;
    }
-   
+
    /* get length */
    length = d.source[d.sourceIndex+1];
    length = 256*length + d.source[d.sourceIndex];
@@ -2588,7 +2588,7 @@ this.init = function()
    this.length_bits[28] = 0;
    this.length_base[28] = 258;
 
-   this.reset();   
+   this.reset();
 }
 
 this.reset = function()
@@ -2619,7 +2619,7 @@ this.uncompress = function(source, offset)
    }
 
    var blocks = 0;
-   
+
    do {
 
       var btype;
@@ -2652,11 +2652,11 @@ this.uncompress = function(source, offset)
 
       if (res != this.OK) return { 'status' : this.DATA_ERROR };
       blocks++;
-      
+
    } while (!bfinal && d.sourceIndex < d.source.length);
 
    d.history = d.history.slice(-this.WINDOW_SIZE);
-   
+
    return { 'status' : this.OK, 'data' : d.dest };
 }
 
@@ -3617,7 +3617,7 @@ next_iteration = function () {
     } else {
         rfb.disconnect();
     }
-    
+
     if (test_state !== 'running') { return; }
 
     iteration += 1;
@@ -3766,7 +3766,7 @@ var that           = {},  // Public API methods
         ],
 
     encHandlers    = {},
-    encNames       = {}, 
+    encNames       = {},
     encStats       = {},     // [rectCnt, rectCntTot]
 
     ws             = null,   // Websock object
@@ -3786,7 +3786,7 @@ var that           = {},  // Public API methods
         bytes          : 0,
         x              : 0,
         y              : 0,
-        width          : 0, 
+        width          : 0,
         height         : 0,
         encoding       : 0,
         subencoding    : -1,
@@ -4021,7 +4021,7 @@ init_vars = function() {
     for (i=0; i < encodings.length; i+=1) {
         encStats[encodings[i][1]][0] = 0;
     }
-    
+
     for (i=0; i < 4; i++) {
         //FBU.zlibs[i] = new InflateStream();
         FBU.zlibs[i] = new TINF();
@@ -4066,7 +4066,7 @@ print_stats = function() {
  *   fatal        - failed to load page, or fatal error
  *
  * RFB protocol initialization states:
- *   ProtocolVersion 
+ *   ProtocolVersion
  *   Security
  *   Authentication
  *   password     - waiting for password, not part of RFB
@@ -4083,7 +4083,7 @@ updateState = function(state, statusMsg) {
         return;
     }
 
-    /* 
+    /*
      * These are disconnected states. A previous connect may
      * asynchronously cause a connection so make sure we are closed.
      */
@@ -4313,7 +4313,7 @@ mouseMove = function(x, y) {
 
     mouse_arr = mouse_arr.concat(
             pointerEvent(display.absX(x), display.absY(y)));
-    
+
     checkEvents();
 };
 
@@ -4354,7 +4354,7 @@ init_msg = function() {
             default:
                 return fail("Invalid server version " + sversion);
         }
-        if (is_repeater) { 
+        if (is_repeater) {
             repeaterID = conf.repeaterID;
             while (repeaterID.length < 250) {
                 repeaterID += "\0";
@@ -4362,7 +4362,7 @@ init_msg = function() {
             ws.send_string(repeaterID);
             break;
         }
-        if (rfb_version > rfb_max_version) { 
+        if (rfb_version > rfb_max_version) {
             rfb_version = rfb_max_version;
         }
 
@@ -4383,7 +4383,7 @@ init_msg = function() {
 
     case 'Security' :
         if (rfb_version >= 3.7) {
-            // Server sends supported list, client decides 
+            // Server sends supported list, client decides
             num_types = ws.rQshift8();
             if (ws.rQwait("security type", num_types, 1)) { return false; }
             if (num_types === 0) {
@@ -4402,7 +4402,7 @@ init_msg = function() {
             if (rfb_auth_scheme === 0) {
                 return fail("Unsupported security types: " + types);
             }
-            
+
             ws.send([rfb_auth_scheme]);
         } else {
             // Server decides
@@ -4463,7 +4463,7 @@ init_msg = function() {
                 response = genDES(rfb_password, challenge);
                 //Util.Debug("Response: " + response +
                 //           " (" + response.length + ")");
-                
+
                 //Util.Debug("Sending DES encrypted auth response");
                 ws.send(response);
                 updateState('SecurityResult');
@@ -4590,7 +4590,7 @@ init_msg = function() {
         blue_shift     = ws.rQshift8();
         ws.rQshiftStr(3); // padding
 
-        Util.Info("Screen: " + fb_width + "x" + fb_height + 
+        Util.Info("Screen: " + fb_width + "x" + fb_height +
                   ", bpp: " + bpp + ", depth: " + depth +
                   ", big_endian: " + big_endian +
                   ", true_color: " + true_color +
@@ -4615,7 +4615,7 @@ init_msg = function() {
         name_length   = ws.rQshift32();
         fb_name = Util.decodeUTF8(ws.rQshiftStr(name_length));
         conf.onDesktopName(that, fb_name);
-        
+
         if (conf.true_color && fb_name === "Intel(r) AMT KVM")
         {
             Util.Warn("Intel AMT KVM only support 8/16 bit depths. Disabling true color");
@@ -4670,7 +4670,7 @@ init_msg = function() {
         timing.fbu_rt_start = (new Date()).getTime();
         timing.pixels = 0;
         ws.send(response);
-        
+
         checkEvents();
 
         if (conf.encrypt) {
@@ -4711,8 +4711,8 @@ normal_msg = function() {
         first_colour = ws.rQshift16(); // First colour
         num_colours = ws.rQshift16();
         if (ws.rQwait("SetColourMapEntries", num_colours*6, 6)) { return false; }
-        
-        for (c=0; c < num_colours; c+=1) { 
+
+        for (c=0; c < num_colours; c+=1) {
             red = ws.rQshift16();
             //Util.Debug("red before: " + red);
             red = parseInt(red / 256, 10);
@@ -4971,7 +4971,7 @@ encHandlers.HEXTILE = function display_hextile() {
     //Util.Debug(">> display_hextile");
     var subencoding, subrects, color, cur_tile,
         tile_x, x, w, tile_y, y, h, xy, s, sx, sy, wh, sw, sh,
-        rQ = ws.get_rQ(), rQi = ws.get_rQi(); 
+        rQ = ws.get_rQ(), rQi = ws.get_rQi();
 
     if (FBU.tiles === 0) {
         FBU.tiles_x = Math.ceil(FBU.width/16);
@@ -5123,7 +5123,7 @@ function display_tight(isTightPNG) {
 
     var ctl, cmode, clength, color, img, data;
     var filterId = -1, resetStreams = 0, streamId = -1;
-    var rQ = ws.get_rQ(), rQi = ws.get_rQi(); 
+    var rQ = ws.get_rQ(), rQi = ws.get_rQi();
 
     FBU.bytes = 1; // compression-control byte
     if (ws.rQwait("TIGHT compression-control", FBU.bytes)) { return false; }
@@ -5196,7 +5196,7 @@ function display_tight(isTightPNG) {
     };
     var handlePalette = function() {
         var numColors = rQ[rQi + 2] + 1;
-        var paletteSize = numColors * fb_depth; 
+        var paletteSize = numColors * fb_depth;
         FBU.bytes += paletteSize;
         if (ws.rQwait("TIGHT palette " + cmode, FBU.bytes)) { return false; }
 
@@ -5214,7 +5214,7 @@ function display_tight(isTightPNG) {
         if (ws.rQwait("TIGHT " + cmode, FBU.bytes)) { return false; }
 
         // Shift ctl, filter id, num colors, palette entries, and clength off
-        ws.rQshiftBytes(3); 
+        ws.rQshiftBytes(3);
         var palette = ws.rQshiftBytes(paletteSize);
         ws.rQshiftBytes(clength[0]);
 
@@ -5275,7 +5275,7 @@ function display_tight(isTightPNG) {
     resetStreams = ctl & 0xF;
 
     // Figure out filter
-    ctl = ctl >> 4; 
+    ctl = ctl >> 4;
     streamId = ctl & 0x3;
 
     if (ctl === 0x08)      cmode = "fill";
@@ -5468,7 +5468,7 @@ clientEncodings = function() {
             Util.Debug("Skipping Cursor pseudo-encoding");
 
         // TODO: remove this when we have tight+non-true-color
-        } else if ((encodings[i][0] === "TIGHT") && 
+        } else if ((encodings[i][0] === "TIGHT") &&
                    (! conf.true_color)) {
             Util.Warn("Skipping tight, only support with true color");
         } else {
@@ -6958,17 +6958,7 @@ function init(protocols) {
         bt = true;
     }
 
-    // Check for full binary type support in WebSockets
-    // TODO: this sucks, the property should exist on the prototype
-    // but it does not.
-    try {
-        if (bt && ('binaryType' in (new WebSocket("ws://localhost:17523")))) {
-            Util.Info("Detected binaryType support in WebSockets");
-            wsbt = true;
-        }
-    } catch (exc) {
-        // Just ignore failed test localhost connections
-    }
+    wsbt = true;
 
     // Default protocols if not specified
     if (typeof(protocols) === "undefined") {
@@ -7135,7 +7125,7 @@ if (!window.$D) {
 }
 
 
-/* 
+/*
  * ------------------------------------------------------
  * Namespaced in WebUtil
  * ------------------------------------------------------
@@ -7159,9 +7149,9 @@ WebUtil.dirObj = function (obj, depth, parent) {
     if (! depth) { depth=2; }
     if (! parent) { parent= ""; }
 
-    // Print the properties of the passed-in object 
+    // Print the properties of the passed-in object
     for (i in obj) {
-        if ((depth > 1) && (typeof obj[i] === "object")) { 
+        if ((depth > 1) && (typeof obj[i] === "object")) {
             // Recurse attributes that are objects
             msg += WebUtil.dirObj(obj[i], depth-1, parent + "." + i);
         } else {
@@ -7173,7 +7163,7 @@ WebUtil.dirObj = function (obj, depth, parent) {
             }
             if (val.length > 30) {
                 val = val.substr(0,30) + "...";
-            } 
+            }
             msg += parent + "." + i + ": " + val + "\n";
         }
     }
@@ -7313,7 +7303,7 @@ WebUtil.selectStylesheet = function(sheet) {
     }
     for (i=0; i < sheets.length; i += 1) {
         link = sheets[i];
-        if (link.title === sheet) {    
+        if (link.title === sheet) {
             Util.Debug("Using stylesheet " + sheet);
             link.disabled = false;
         } else {

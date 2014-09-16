@@ -4,7 +4,7 @@ require "nokogiri"
 
 print "Content-Type: text/html\n\n"
 
-doc = Nokogiri::XML(open("http://boganipsum.com/").read)
+doc = Nokogiri::HTML(open("http://boganipsum.com/").read)
 
 sentences = doc.css(".bogan-ipsum p").flat_map { |p| p.text.split(/(?<=\. )/) }
 

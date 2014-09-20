@@ -1,0 +1,19 @@
+#!/opt/rubies/2.1.2/bin/ruby
+require "digest/sha2"
+
+AUTH_TOKEN_SHA2 = "603009b20a63317b524013e3ae44d3abaed49bc5e846228aee05c415a00311a3" # call the cops
+
+if Digest::SHA2.hexdigest(ENV["HTTP_X_AUTH_TOKEN"]) != AUTH_TOKEN_SHA2
+  print "Status: 400\r\n" +
+        "Content-Type: text/html\r\n"
+        "\r\n" +
+        "<h1>nope</h1>"
+end
+
+File.open("/var/www/charlie.su/#{ENV["HTTP_X_FILENAME"]}", "w") do |f|
+  IO.copy_stream($stdin, f)
+end
+
+print "Status: 201\r\n" +
+      "Content-Type: text/plain\r\n" +
+      "\r\n"

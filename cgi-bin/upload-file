@@ -8,6 +8,7 @@ if Digest::SHA2.hexdigest(ENV["HTTP_X_AUTH_TOKEN"] || "") != AUTH_TOKEN_SHA2
         "Content-Type: text/html\r\n"
         "\r\n" +
         "<h1>nope</h1>"
+  exit
 end
 
 File.open("/var/www/charlie.su/#{ENV["HTTP_X_FILENAME"]}", "w") do |f|

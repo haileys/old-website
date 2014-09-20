@@ -21,7 +21,7 @@ begin
     "-nographic",
     "-vnc", "unix:#{instance_root}/vnc.sock",
     "-m", "16",
-    { 1 => qemu_log, 2 => qemu_log }
+    { 0 => :close, 1 => qemu_log, 2 => qemu_log }
 
   Timeout.timeout(1) do
     until File.exist?("#{instance_root}/vnc.sock")

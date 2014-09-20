@@ -5,7 +5,7 @@ AUTH_TOKEN_SHA2 = "603009b20a63317b524013e3ae44d3abaed49bc5e846228aee05c415a0031
 
 if Digest::SHA2.hexdigest(ENV["HTTP_X_AUTH_TOKEN"] || "") != AUTH_TOKEN_SHA2
   print "Status: 400\r\n" +
-        "Content-Type: text/html\r\n"
+        "Content-Type: text/html\r\n" +
         "\r\n" +
         "<h1>nope</h1>"
   exit

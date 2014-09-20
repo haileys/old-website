@@ -11,10 +11,13 @@ if Digest::SHA2.hexdigest(ENV["HTTP_X_AUTH_TOKEN"] || "") != AUTH_TOKEN_SHA2
   exit
 end
 
-File.open("/var/www/charlie.su/#{ENV["HTTP_X_FILENAME"]}", "w") do |f|
+target_filename = ENV["HTTP_X_FILENAME"]
+
+File.open("/var/www/charlie.su/#{target_filename}", "w") do |f|
   IO.copy_stream($stdin, f)
 end
 
 print "Status: 201\r\n" +
       "Content-Type: text/plain\r\n" +
-      "\r\n"
+      "\r\n" +
+      "http://charlie.su/#{target_filename}"

@@ -16,15 +16,35 @@ canvas {
   margin-left:-320px;
   margin-top:-240px;
 }
+#nowebsocket {
+  width:640px;
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin-left:-320px;
+  margin-top:-48px;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:18px;
+  text-align:center;
+}
 </style>
 </head>
 <body>
+  <div id="nowebsocket">
+    <p>Welcome to Charlie's site!</p>
+    <p>Please use a browser with WebSockets for the full modern experience.</p>
+  </div>
   <canvas id="console"></div>
 </body>
-<script src="assets/novnc.js?2"></script>
+<script src='assets/novnc.js?2'></script>
 <script>
-var con = document.getElementById("console");
-var rfb = new RFB({ target: con });
-rfb.connect("charlie.bz", 8080, null, "ws-bin/vnc");
+if("WebSocket" in window) {
+  var noWebSocketMessage = document.getElementById("nowebsocket");
+  noWebSocketMessage.parentNode.removeChild(noWebSocketMessage);
+  var con = document.getElementById("console");
+  var rfb = new RFB({ target: con });
+  rfb.connect("charlie.bz", 8080, null, "ws-bin/vnc");
+}
 </script>
 </html>

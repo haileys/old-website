@@ -1,3 +1,23 @@
+#!/opt/rubies/2.1.2/bin/ruby
+
+print "Content-Type: text/html\r\n\r\n"
+
+if ENV["HTTP_USER_AGENT"] =~ /Windows 95/ # lmao
+  puts <<-HTML
+    <TITLE>Charlie Somerville</TITLE>
+    <BODY BGCOLOR=#FFFFFF>
+    <H1>Charlie's Home Page</H1>
+    <P>
+      Welcome to Charlie's Home Page on the World Wide Web.
+    <P>
+      <IMG SRC=CONSTR~1.GIF WIDTH=38 HEIGHT=38>
+    <P>
+      <A HREF=mailto:webmaster@hailey.lol>webmaster@hailey.lol</A>
+  HTML
+  exit
+end
+
+puts <<-HTML
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,3 +68,4 @@ if("WebSocket" in window) {
 }
 </script>
 </html>
+HTML

@@ -1940,10 +1940,10 @@ that.grab = function() {
         Util.addEvent(c, 'touchend', onMouseUp);
         Util.addEvent(c, 'touchmove', onMouseMove);
     } else {
-        Util.addEvent(c, 'mousedown', onMouseDown);
-        Util.addEvent(window, 'mouseup', onMouseUp);
-        Util.addEvent(c, 'mouseup', onMouseUp);
-        Util.addEvent(c, 'mousemove', onMouseMove);
+        // Util.addEvent(c, 'mousedown', onMouseDown);
+        // Util.addEvent(window, 'mouseup', onMouseUp);
+        // Util.addEvent(c, 'mouseup', onMouseUp);
+        // Util.addEvent(c, 'mousemove', onMouseMove);
         Util.addEvent(c, (Util.Engine.gecko) ? 'DOMMouseScroll' : 'mousewheel',
                 onMouseWheel);
     }
@@ -1951,6 +1951,10 @@ that.grab = function() {
     /* Work around right and middle click browser behaviors */
     Util.addEvent(document, 'click', onMouseDisable);
     Util.addEvent(document.body, 'contextmenu', onMouseDisable);
+
+    Util.addEvent(document, 'mousedown', onMouseDown);
+    Util.addEvent(document, 'mouseup', onMouseUp);
+    Util.addEvent(document, 'mousemove', onMouseMove);
 
     //Util.Debug("<< Mouse.grab");
 };

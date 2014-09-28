@@ -1,0 +1,7 @@
+<FilesMatch ^(vendor|\.bundle|Gemfile|Gemfile.lock)>
+    Deny from all
+</FilesMatch>
+
+RewriteEngine on
+
+RewriteRule ^blog/(.+)$ /show_post.cgi?slug=$1 [L]

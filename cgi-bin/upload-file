@@ -20,4 +20,4 @@ end
 print "Status: 201\r\n" +
       "Content-Type: text/plain\r\n" +
       "\r\n" +
-      "http://charlie.su/#{target_filename}"
+      "https://charlie.su/#{target_filename}"

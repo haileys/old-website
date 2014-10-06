@@ -1,7 +1,6 @@
-<FilesMatch ^(vendor|\.bundle|Gemfile|Gemfile.lock)>
+<Files ~ "^(vendor|\.bundle|Gemfile|Gemfile\.lock)">
     Deny from all
-</FilesMatch>
+</Files>
 
-RewriteEngine on
-
-RewriteRule ^blog/(.+)$ /show_post.cgi?slug=$1 [L]
+#RewriteEngine on
+#RewriteRule ^blog/(.+)$ /show_post.cgi?slug=$1 [L]

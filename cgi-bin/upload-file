@@ -1,7 +1,7 @@
 #!/opt/rubies/2.1.2/bin/ruby
 require "digest/sha2"
 
-AUTH_TOKEN_SHA2 = "603009b20a63317b524013e3ae44d3abaed49bc5e846228aee05c415a00311a3" # call the cops
+AUTH_TOKEN_SHA2 = "df89efaba5da68f47c16fb71703b4816a9591cf63a44ddc509568afdabedf405" # call the cops
 
 if Digest::SHA2.hexdigest(ENV["HTTP_X_AUTH_TOKEN"] || "") != AUTH_TOKEN_SHA2
   print "Status: 400\r\n" +

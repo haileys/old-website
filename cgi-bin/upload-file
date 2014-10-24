@@ -13,8 +13,14 @@ end
 
 target_filename = ENV["HTTP_X_FILENAME"]
 
-File.open("/var/www/charlie.su/#{target_filename}", "w") do |f|
+target_path = "/var/www/charlie.su/#{target_filename}"
+
+File.open(target_path, "w") do |f|
   IO.copy_stream($stdin, f)
+end
+
+if target_filename.end_with?(".jpg")
+  system "/usr/bin/exiftool", "-q", "-all=", target_path
 end
 
 print "Status: 201\r\n" +

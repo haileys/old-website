@@ -53,7 +53,7 @@ canvas {
 <body>
 HTML
 
-if File.read("/proc/loadavg").split.first.to_f > 5
+if File.read("/proc/loadavg").split.first.to_f > 3
   puts <<-HTML
     <div style="background:#333;color:#ccc;text-align:center;font-family:sans-serif;padding:8px;">
       This site is currently under heavy load, and is slower than usual as a result. Sorry about that.

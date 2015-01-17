@@ -51,6 +51,17 @@ canvas {
 </style>
 </head>
 <body>
+HTML
+
+if File.read("/proc/loadavg").split.first.to_f > 5
+  puts <<-HTML
+    <div style="background:#333;color:#ccc;text-align:center;font-family:sans-serif;padding:8px;">
+      This site is currently under heavy load, and is slower than usual as a result. Sorry about that.
+    </div>
+  HTML
+end
+
+puts <<-HTML
   <div id="nowebsocket">
     <p>Welcome to Charlie's site!</p>
     <p>Please use a browser with WebSockets for the full modern experience.</p>

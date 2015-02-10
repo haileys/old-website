@@ -2,7 +2,7 @@
 
 print "Content-Type: text/html\r\n\r\n"
 
-if ENV["HTTP_USER_AGENT"] =~ /Windows 95/ # lmao
+if ENV["HTTP_USER_AGENT"] =~ /Windows 95/ || ENV["QUERY_STRING"] == "win95" # lmao
   puts <<-HTML
     <TITLE>Charlie Somerville</TITLE>
     <BODY BGCOLOR=#FFFFFF>

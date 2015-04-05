@@ -1,0 +1,4 @@
+#!/bin/bash
+echo Content-Type: text/plain
+echo
+echo "$HTTP_X_FORWARDED_FOR"

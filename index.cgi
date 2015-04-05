@@ -75,7 +75,7 @@ if("WebSocket" in window) {
   noWebSocketMessage.parentNode.removeChild(noWebSocketMessage);
   var con = document.getElementById("console");
   var rfb = new RFB({ target: con });
-  rfb.connect("charlie.bz", 8080, null, "ws-bin/vnc");
+  rfb.connect("charlie.bz", 443, null, "ws-bin/vnc");
 }
 </script>
 </html>

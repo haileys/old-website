@@ -35,6 +35,11 @@ canvas {
   top:50%;
   margin-left:-320px;
   margin-top:-240px;
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
 }
 #nowebsocket {
   width:640px;

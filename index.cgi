@@ -66,6 +66,8 @@ if File.read("/proc/loadavg").split.first.to_f > 3
   HTML
 end
 
+vnc_path = ENV["QUERY_STRING"] == "hellyeahrealmode" ? "ws-bin/vnc-hellyeahrealmode" : "ws-bin/vnc"
+
 puts <<-HTML
   <div id="nowebsocket">
     <p>Welcome to Charlie's site!</p>
@@ -80,7 +82,7 @@ if("WebSocket" in window) {
   noWebSocketMessage.parentNode.removeChild(noWebSocketMessage);
   var con = document.getElementById("console");
   var rfb = new RFB({ target: con });
-  rfb.connect("charlie.bz", 443, null, "ws-bin/vnc");
+  rfb.connect("charlie.bz", 443, null, "#{vnc_path}");
 }
 </script>
 </html>

@@ -1,0 +1,2 @@
+#!/bin/sh
+exec ssh -i /var/www/.ssh/id_win95 win95@win95.hailey.lol ./run-stdiovnc hellyeahrealmode.img
